@@ -19,7 +19,7 @@ export class TodosResolver {
         return this.todosService.getTodo(id);
     }
 
-    @Mutation(type => Todo)
+    @Mutation(type => [Todo])
     async addTodo(@Args('input') input: AddTodoInput) {
         return this.todosService.addTodo(input);
     }
