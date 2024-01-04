@@ -1,13 +1,15 @@
-import { Field, ID, ObjectType } from "@nestjs/graphql";
+import { ObjectType } from '@nestjs/graphql';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity()
 @ObjectType()
 export class Todo {
-    @Field(() => ID)
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Field()
-    title: string;
+  @Column({ type: 'varchar', length: 255 })
+  title: string;
 
-    @Field()
-    completed: boolean;
+  @Column({ type: 'boolean'})
+  completed: boolean;
 }
